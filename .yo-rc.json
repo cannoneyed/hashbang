@@ -1,0 +1,11 @@
+{
+  "generator-angular-famous-ionic": {
+    "appname": "soloProject",
+    "clientFolder": "client",
+    "ionic": false,
+    "famous": true,
+    "ngCordova": false,
+    "fontawesome": true,
+    "bootstrap": true
+  }
+}
