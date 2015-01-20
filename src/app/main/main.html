@@ -1,30 +1,10 @@
-<div class="container">
-
-  <div ng-include="'components/navbar/navbar.html'"></div>
-
-  <div class="jumbotron text-center stage">
-
-
-  <h1>{{ message }}</h1>
-  <div class="row">
-      <div class="input-group input-group-lg">
-        <input type="text" class="form-control" placeholder="Enter string to be hashed..." maxlength="55">
-        <span class="input-group-btn">
-          <button onclick="startHash()" class="btn btn-default" type="button">Hash!</button>
-
-        </span>
-      </div><!-- /input-group -->
-  </div><!-- /.row -->
+<div class="row">
+    <div class="input-group input-group-lg">
+      <input type="text" class="form-control" placeholder="Enter string to be hashed..." maxlength="55" ng-model="hashString">
+      <span class="input-group-btn">
+        <button ng-click="startHash()" class="btn btn-default" type="button">Hash!</button>
+      </span>
+    </div><!-- /input-group -->
+</div><!-- /.row -->
 
 
-  </div>
-
-  
-
-  <hr>
-
-  <div class="footer">
-    <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
-  </div>
-
-</div>
