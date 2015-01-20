@@ -1,0 +1,109 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.thumbnail {
+  height: 200px;
+
+  img.pull-right {
+    width: 50px;
+  }
+}
+
+.jumbotron.stage {
+  min-height: 600px;
+  position: relative;
+}
+
+.footer-base {
+  position: absolute;
+  bottom: -40px;
+  left: 0px;
+  width: 100%;
+}
+
+.bucket.letter {
+  min-width: 50px;
+  min-height: 50px;
+  line-height:50px;
+  background-color: #FFFFFF;
+  margin: 5px;
+  font-size: 2em;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.state-3 .set-perspective{
+  position:absolute;
+  height:100%;
+  width:100%;
+  -webkit-perspective-origin:65% 50%;
+  perspective-origin:65% 50%
+}
+.state-3 .cat-tile{
+  font-family:Lato;
+  background:#eaefef;
+  width:100%;
+  height:100%;
+  border-radius:5px
+}
+
+.state-3 .cat-tile .left-col{
+  float:left;
+  width:40%;
+  padding-top:10px;
+  padding-left:10px
+}
+
+.state-3 .cat-tile .left-col .cat-picture{
+  height:90px;
+  width:90px;
+  border-radius:999px;
+  border:3px solid #fff
+}
+
+.state-3 .cat-tile .right-col{
+  float:left;
+  width:59%;
+  padding-top:16px
+}
+
+.state-3 .cat-tile .right-col .cat-name{
+  font-size:28px;
+  color:#1b1f1f
+}
+
+.state-3 .cat-tile .right-col .cat-location{
+  font-size:20px;
+  color:#ae81ff
+}
+
+.state-3 .repeat-slider-container{
+  position:absolute;
+  background:#fff;
+  border-radius:3px;
+  width:100%;height:100%;
+  padding:35px 30px
+}
+
+.state-3 .repeat-slider{
+  border:0;
+  border-radius:3px;
+  margin:auto;
+  height:50px;
+  width:90%
+}
+
+.state-3 .repeat-slider:focus{
+  outline-width:0
+}
+
+@media (max-width:767px){
+  .state-3 .repeat-slider-container{
+    padding:50px}
+}
+// injector
+// endinjector

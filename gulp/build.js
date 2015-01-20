@@ -7,7 +7,7 @@ var $ = require('gulp-load-plugins')({
 });
 
 gulp.task('styles', ['wiredep', 'injector:css:preprocessor'], function () {
-  return gulp.src(['src/app/index.scss', 'src/app/vendor.scss'])
+  return gulp.src(['src/style/index.scss', 'src/style/vendor.scss'])
     .pipe($.sass({style: 'expanded'}))
     .on('error', function handleError(err) {
       console.error(err.toString());
@@ -18,14 +18,14 @@ gulp.task('styles', ['wiredep', 'injector:css:preprocessor'], function () {
 });
 
 gulp.task('injector:css:preprocessor', function () {
-  return gulp.src('src/app/index.scss')
+  return gulp.src('src/style/index.scss')
     .pipe($.inject(gulp.src([
         'src/{app,components}/**/*.scss',
-        '!src/app/index.scss',
-        '!src/app/vendor.scss' 
+        '!src/style/index.scss',
+        '!src/style/vendor.scss' 
       ], {read: false}), {
       transform: function(filePath) {
-        filePath = filePath.replace('src/app/', '');
+        filePath = filePath.replace('src/style/', '');
         filePath = filePath.replace('src/components/', '../components/');
         return '@import \'' + filePath + '\';';
       },
@@ -33,7 +33,7 @@ gulp.task('injector:css:preprocessor', function () {
       endtag: '// endinjector',
       addRootSlash: false
     }))
-    .pipe(gulp.dest('src/app/'));
+    .pipe(gulp.dest('src/style/'));
 });
 
 gulp.task('injector:css', ['styles'], function () {

@@ -22,13 +22,13 @@ angular.module('hashBang.services', [])
 
   function createHash(string) {
     var args = string;
+
     _.each(steps, function(step, index) {
-      step.fn = hashFunctions[(index * 1 - 1)];
+      step.fn = hashFunctions[index];
       step.args = args;
       var nextArgs = step.fn(args);
       step.value = nextArgs;
 
-      printStep(step, index);
       args = nextArgs.slice();
     });
   }
@@ -50,7 +50,7 @@ angular.module('hashBang.services', [])
     console.log('-----------------------');
   }
 
-  var steps = hashSteps;
+  var steps = hashSteps.steps;
 
   var hashFunctions = [
     function stringToCharacters (string) {
@@ -92,7 +92,7 @@ angular.module('hashBang.services', [])
     },
 
     function appendMessageLength (array) {
-      var messageLength = steps['03'].value.length * 8;
+      var messageLength = steps[2].value.length * 8;
       var messageLengthBinary = 
       messageLengthBinary = _.map(messageLength.toString(2).split(''), 
         function (value) {
@@ -117,7 +117,7 @@ angular.module('hashBang.services', [])
     },
 
     function extendWords (array) {
-      for (var i = 16; i <= 79; i ++) {
+      for (var i = 16; i < 80; i ++) {
         var word1 = array[i-3];
         var word2 = array[i-8];
         var word3 = array[i-14];
@@ -125,19 +125,35 @@ angular.module('hashBang.services', [])
 
 
         var word = XOR(word1, word2);
-
-
         word = XOR(word, word3);
-
-
         word = XOR(word, word4);
 
         array.push( leftShift(word) );
       }
-      // console.log(array.length);
+
       return array;
+    },
+
+    function splitIntoFour (array) {
+      var groups = [];
+      for (var i = 0; i < 4; i++) {
+        groups[i] = array.splice(0,20);
+      }
+
+      return groups;
     }
+
+    // function group1 (array) {
+    //   var A = h[0];
+    //   var B = h[1];
+    //   var C = h[2];
+    //   var D = h[3];
+    //   var E = h[4];
+
+    //   return 10;
+    // }
   ];
+
 
   function XOR (word1, word2) {
     var result = [];

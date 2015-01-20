@@ -1,3 +1,105 @@
 <div>
-  
+
+<fa-app style="height: 600px; width: 600px; margin: 0;">
+  <fa-modifier
+    ng-repeat="box in boxes"
+    fa-size="[50, 50]"
+    fa-translate="box.trans.get()">
+    <fa-modifier id="{{'box-' + $index}}">
+      <fa-surface
+        fa-background-color="box.bg_color"
+        fa-color="box.color"
+        fa-click="click(box)"
+        fa-size="[50, 50]">
+        <table>
+          <tr>
+            <td align="center">
+              {{text}} {{$index + 1}}
+            </td>
+          </tr>
+        </table>
+      </fa-surface>
+    </fa-modifier>
+  </fa-modifier>
+</fa-app>
+
+
+
+
+
+
+
+
+<div ng-include="'app/navbar/navbar.html'"></div>
+
 </div>
+
+
+
+<!-- <fa-view ts-sheet="State3Sheet">
+
+<fa-app fa-perspective="1000" class="set-perspective">
+  <fa-modifier fa-translate="[tileGrid.margin.left, 0, 0]">
+    <fa-modifier ng-repeat="cat in cats" fa-size="[tile.width, tile.height]" fa-animate-enter="catEnter(cat.t, $done)" fa-animate-leave="catLeave(cat.t, $done)" fa-translate="catTile.translate(cat.t, $index)" fa-origin="[0, 0]" fa-align="[0, 0]">
+    <fa-modifier fa-rotate-x="catTile.rotateX(cat.t.get())">
+      <fa-surface fa-size="[tile.width, tile.height]" class="cat-tile">
+        <div class="left-col">
+        </div>
+        <div class="right-col">
+          <div class="cat-name">{{cat.name}}</div>
+          <div class="cat-location">{{cat.location}}</div>
+        </div>
+      </fa-surface>
+    </fa-modifier>
+    </fa-modifier>
+  </fa-modifier>
+</fa-app>
+
+</fa-view> -->
+
+ <!--  
+<fa-view ts-sheet="State3Sheet">
+<fa-modifier fa-translate="gravity.translate(gravityTimeline.get())" fa-opacity="gravity.opacity(gravityTimeline.get())">
+<fa-modifier fa-translate="entireView.translate(t.get())" fa-opacity="entireView.opacity(t.get())">
+<fa-modifier id="left-column">
+<fa-modifier fa-translate="heading.translate(t.get())" fa-opacity="heading.opacity(t.get())">
+<fa-surface fa-size="[700, true]">
+<h1 class="heading">Use core Angular directives like <span class="heading-code">&lt;ng-repeat&gt; </span></h1>
+</fa-surface></fa-modifier><fa-modifier id="code">
+<fa-surface fa-size="[true, true]" class="code">
+
+
+</fa-surface>
+</fa-modifier>
+</fa-modifier>
+
+<fa-modifier id="right-column">
+<fa-surface fa-size="[640, faAppHeight()]">
+<fa-app fa-perspective="1000" class="set-perspective"><<fa-modifier fa-translate="[tileGrid.margin.left, 0, 0]">
+<fa-modifier ng-repeat="cat in cats" fa-size="[tile.width, tile.height]" fa-animate-enter="catEnter(cat.t, $done)" fa-animate-leave="catLeave(cat.t, $done)" fa-translate="catTile.translate(cat.t, $index)" fa-origin="[0, 0]" fa-align="[0, 0]">
+<fa-modifier fa-rotate-x="catTile.rotateX(cat.t.get())">
+<fa-surface fa-size="[tile.width, tile.height]" class="cat-tile">
+<div class="left-col">
+  <img ng-src="{{cat.picture}}" class="cat-picture"/>
+</div>
+<div class="right-col">
+  <div class="cat-name">{{cat.name}}</div>
+  <div class="cat-location">{{cat.location}}</div>
+</div>
+</fa-surface>
+</fa-modifier>
+</fa-modifier>
+</fa-modifier>
+</fa-app>
+</fa-surface>
+
+<fa-modifier fa-translate="repeatSlider.translate(t.get())" fa-opacity="repeatSlider.opacity(t.get())">
+<fa-surface fa-size="[repeatSlider.width, isDesktop() ? 80 : 110]">
+<div class="repeat-slider-container">
+  <input type="range" min="0" max="8" ng-model="data.repeatCount" class="repeat-slider"/>
+</div></fa-surface>
+</fa-modifier>
+</fa-modifier>
+</fa-modifier>
+</fa-modifier>
+</fa-view> -->

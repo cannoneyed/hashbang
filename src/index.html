@@ -10,6 +10,7 @@
     <!-- build:css({.tmp,src}) styles/vendor.css -->
     <link rel="stylesheet" href="app/vendor.css">
     <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/famous-angular/dist/famous-angular.css" />
     <!-- endbower -->
     <!-- endbuild -->
     
@@ -31,7 +32,7 @@
 
     <div class="container">
 
-      <div ng-include="'components/navbar/navbar.html'"></div>
+      <div ng-include="'app/header/header.html'"></div>
 
       <div class="jumbotron text-center stage">
           <div ui-view></div>
@@ -67,17 +68,27 @@
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/famous-angular/dist/famous-angular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
+    <script src="../bower_components/famous/dist/famous-global.js"></script>
+
     <!-- build:js({.tmp,src}) scripts/app.js -->
     <!-- inject:js -->
+    <script src="app/sheets/src/module.js"></script>
+    <script src="app/sheets/src/services/media.js"></script>
+    <script src="app/sheets/src/directives/ts-sheet.js"></script>
+    <script src="app/steps/graphics/step01.animation.controller.js"></script>
     <script src="app/main/main.controller.js"></script>
-    <script src="components/navbar/navbar.controller.js"></script>
     <script src="app/steps/step.controller.js"></script>
     <script src="app/main/hashFunctions.js"></script>
     <script src="app/steps/hashSteps.js"></script>
+    <script src="app/navbar/navbar.controller.js"></script>
+    <script src="app/navbar/header.controller.js"></script>
+    <script src="app/header/header.controller.js"></script>
     <script src="app/index.js"></script>
+    <script src="app/common/stateTransitions.js"></script>
     <!-- endinject -->
 
     <!-- inject:partials -->
