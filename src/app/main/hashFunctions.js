@@ -29,7 +29,7 @@ angular.module('hashBang.services', [])
       step.value = nextArgs;
 
       printStep(step, index);
-      args = nextArgs;
+      args = nextArgs.slice();
     });
   }
 
@@ -109,9 +109,50 @@ angular.module('hashBang.services', [])
     },
 
     function breakIntoWords (array) {
-      
+      var results = [];
+      while (array.length > 0) {
+        results.push(array.splice(0,32));
+      }
+      return results;
+    },
+
+    function extendWords (array) {
+      for (var i = 16; i <= 79; i ++) {
+        var word1 = array[i-3];
+        var word2 = array[i-8];
+        var word3 = array[i-14];
+        var word4 = array[i-16];
+
+
+        var word = XOR(word1, word2);
+
+
+        word = XOR(word, word3);
+
+
+        word = XOR(word, word4);
+
+        array.push( leftShift(word) );
+      }
+      // console.log(array.length);
+      return array;
     }
   ];
+
+  function XOR (word1, word2) {
+    var result = [];
+    for (var i = 0; i < word1.length; i++) {
+      result.push(word1[i] ^ word2[i]);
+    }
+    return result;
+  }
+
+  function leftShift (word) {
+    var result = word.slice();
+    var x = result.shift()
+    result.push(x);
+    return result;
+  }
  
 
 
