@@ -152,6 +152,58 @@ left: -18px;
 top: 24px;
 }
 
+.pointer {
+  color:red;
+  position: absolute;
+  font-size: 1.5em;
+}
+
+.counter {
+ color:red;
+ position: absolute;
+ top: 50px;
+ right: 50px;
+ font-size: 3em; 
+}
+
+.label {
+  color:red;
+  position: absolute;
+  left: 350px;
+  font-size: 2em;
+}
+
+.label.label1 {
+  top:183px;
+}
+.label.label2 {
+  top:283px;
+}
+.label.label3 {
+  top:383px;
+}
+.label.label4 {
+  top:483px;
+}
+.label.result1 {
+  top:343px;
+  font-size: 1em;
+}
+.label.result2 {
+  top:443px;
+  font-size: 1em;
+}
+.label.result3 {
+  top:543px;
+  font-size: 1em;
+}
+
+
+
+
+
+
+
 
 
 .repeated-item {

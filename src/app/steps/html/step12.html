@@ -3,7 +3,6 @@
   <div class="jumbotron text-center stage">
       
 
-
     <div class="displayBox"> 
 
       <div class="thirtyTwoBit bucket">
@@ -54,11 +53,41 @@
     </div>
   </div>
 
+  <div class="eightBit bucket">
+    <div class="eightBit digit repeated-item" 
+         ng-repeat="digit in result1 track by $index"
+         ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
+         ng-style="setWordPosition($index, 32, 400, 350)">
+      {{ digit.value }}
+    </div>
+  </div>
+
+  <div class="eightBit bucket">
+    <div class="eightBit digit repeated-item" 
+         ng-repeat="digit in result2 track by $index"
+         ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
+         ng-style="setWordPosition($index, 32, 400, 450)">
+      {{ digit.value }}
+    </div>
+  </div>
+
+  <div class="eightBit bucket">
+    <div class="eightBit digit repeated-item" 
+         ng-repeat="digit in result3 track by $index"
+         ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
+         ng-style="setWordPosition($index, 32, 400, 550)">
+      {{ digit.value }}
+    </div>
+  </div>
 
   <div class="label label1">{{ counter - 16 }}</div>
   <div class="label label2">{{ counter - 14 }}</div>
   <div class="label label3">{{ counter - 8 }}</div>
   <div class="label label4">{{ counter - 3 }}</div>
+
+  <div class="label result1">XOR</div>
+  <div class="label result2">XOR</div>
+  <div class="label result3">XOR</div>
 
     </div>
 
@@ -71,11 +100,6 @@
     <div class="counter"> i = {{ counter }} </div>
 
     <div ng-include="'app/navbar/navbar.html'"></div>
-
-
-
-
-
 
 
 

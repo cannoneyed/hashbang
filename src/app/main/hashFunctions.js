@@ -170,7 +170,7 @@ angular.module('hashBang.services', [])
   function XOR (word1, word2) {
     var result = [];
     for (var i = 0; i < word1.length; i++) {
-      result.push(word1[i] ^ word2[i]);
+      result.push(newBit(word1[i].value ^ word2[i].value));
     }
     return result;
   }
@@ -186,7 +186,9 @@ angular.module('hashBang.services', [])
 
   return {
     steps : steps,
-    createHash : createHash
+    createHash : createHash,
+    XOR : XOR,
+    leftShift : leftShift
   };
 
 
