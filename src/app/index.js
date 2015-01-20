@@ -11,8 +11,9 @@ angular.module('hashBang', [
   'hashBang.services', 
   // 'hashBang.graphics.controllers',
   'ui.router', 
-  'ui.bootstrap'
+  'ui.bootstrap',
   // 'ts.sheets'
+  'hashBang.directives'
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -34,6 +35,12 @@ angular.module('hashBang', [
           return '/app/steps/html/step' + step + '.html';
           },
          controller: 'StepController'
+       })
+
+      .state('hello', {
+        url: '/hello',
+        templateUrl: 'app/steps/html/hello.html',
+         controller: 'd3Controller'
        });
 
     $urlRouterProvider.otherwise('/');

@@ -22,6 +22,20 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
     else { str += ' visible' }
     return str;
   }
+  $scope.width = 1100;
+  $scope.bitWidth = 27;
+  $scope.gapWidth = 7;
+  $scope.setPosition = function (index, rowSize) {
+    var row = Math.floor(index / rowSize);
+    var col = index % rowSize;
+      return {
+        position: 'absolute',
+        top : ((($scope.bitWidth + $scope.gapWidth) * row)+'px'),
+        left : ((($scope.bitWidth + $scope.gapWidth) * col)+'px'),
+        "width": $scope.bitWidth + 'px',
+        "height": $scope.bitWidth + 'px'
+      }
+  };
 
   if (!hashFunctions.steps.created) {
     hashFunctions.createHash('A Test');
@@ -31,7 +45,9 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
   $scope.stepValues = $scope.stepData.value;
 
 
+
   if ($scope.step === 1) {
+
     var animationTime = 50;
     for (var i = 0; i < $scope.stepValues.length; i++) {
       if ($scope.stepValues[i].value === ' ') {
@@ -87,10 +103,44 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
   }
 
   if ($scope.step === 5) {
-    var animationTime = 10;
+    var animationTime = 7;
     console.log($scope.stepValues);
     for (var i = 0; i < $scope.stepValues.length; i++) {
       $scope.stepValues[i].shown = false;
+      (function (index) {
+          $timeout(function () {
+            $scope.stepValues[index].shown = true;
+          }, animationTime * index);
+      })(i);
+    };
+  }
+
+  if ($scope.step === 6) {
+
+    var animationTime = 1;
+    console.log($scope.stepValues);
+    for (var i = 0; i < $scope.stepValues.length; i++) {
+      (function (index) {
+          $timeout(function () {
+            $scope.stepValues[index].shown = true;
+          }, animationTime * index);
+      })(i);
+    };
+  }
+
+
+  if ($scope.step === 7) {
+    $scope.step7Lines = [1,2,3,4,5,6,7,8];
+    $scope.setHighlightPosition = function (index) {
+      return {
+              position: 'absolute',
+              top : ((index - 1) * 2.51 *  $scope.bitWidth - (2*$scope.gapWidth) +'px'),
+              left: -10 + 'px'
+      }
+    }
+    var animationTime = 7;
+    console.log($scope.stepValues);
+    for (var i = 0; i < $scope.stepValues.length; i++) {
       (function (index) {
           $timeout(function () {
             $scope.stepValues[index].shown = true;
@@ -104,7 +154,13 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
 
 
 
-
+  $scope.myData = [
+      {name: 'AngularJS', count: 300},
+      {name: 'D3.JS', count: 150},
+      {name: 'jQuery', count: 400},
+      {name: 'Backbone.js', count: 300},
+      {name: 'Ember.js', count: 100}
+  ];
 
 
   $scope.previous = function () {

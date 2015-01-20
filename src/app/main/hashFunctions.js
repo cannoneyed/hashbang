@@ -106,13 +106,12 @@ angular.module('hashBang.services', [])
 
     function appendMessageLength (array) {
       var messageLength = steps[2].value.length * 8;
-      var messageLengthBinary = 
-      messageLengthBinary = _.map(messageLength.toString(2).split(''), 
+      var messageLengthBinary = _.map(messageLength.toString(2).split(''), 
         function (value) {
-          return value * 1;
+          return newBit(value * 1);
       });
       while (messageLengthBinary.length < 64) {
-        messageLengthBinary.unshift(0)
+        messageLengthBinary.unshift(newBit(0))
       }
       return array.concat(messageLengthBinary);
     },

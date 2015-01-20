@@ -14,7 +14,9 @@
 }
 
 .jumbotron.stage {
-  min-height: 600px;
+  min-height: 700px;
+  width: 1200px;
+  padding: 50px;
   position: relative;
 }
 
@@ -47,6 +49,7 @@
 }
 
 .eightBit.digit {
+  z-index: 50;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -69,13 +72,22 @@
   background-color: #444;
 }
 
-.delineated:before {
-   content: "";
-}
-
 .appendedBit:last-child {
   background-color: red;
   color: white;
+}
+
+.displayBox {
+  position: relative;
+  width: 1100px;
+  min-height: 600px;
+}
+
+.line-highlight {
+  background-color: #ccf;
+  min-height: 33px;
+  min-width: 1100px;
+  z-index: 20;
 }
 
 
