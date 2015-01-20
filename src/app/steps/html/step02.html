@@ -1,8 +1,10 @@
 <div>
 
   <div class="bucket">
-    <div class="digit" ng-repeat="value in stepValues track by $index">
-      {{ value }}
+    <div class="digit repeated-item" 
+         ng-repeat="value in stepValues track by $index"
+         ng-class="{ invisible: !value.shown }">
+      {{ value.value }}
     </div>
   </div>
 

@@ -1,7 +1,7 @@
 <div>
 
   <div class="eightBit bucket">
-    <div class="eightBit digit repeated-item appendedBit" 
+    <div class="eightBit digit repeated-item" 
          ng-repeat="digit in stepValues track by $index"
          ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}">
       {{ digit.value }}

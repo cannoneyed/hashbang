@@ -23,10 +23,7 @@ angular.module('hashBang.services', [])
   function newBit (value) {
     return {
       value: value,
-      shown: false,
-      get: function () {
-        return value;
-      }
+      shown: false
     }
   }
 
@@ -66,23 +63,27 @@ angular.module('hashBang.services', [])
 
   var hashFunctions = [
     function stringToCharacters (string) {
-      return string.split('');
+      return _.map(string.split(''), function (character) {
+        return { value : character,
+                  shown : false };
+      })
     },
 
     function charactersToASCII (array) {
       return _.map(array, function (character) {
-        return character.charCodeAt(0);
+        return {  value : character.value.charCodeAt(0),
+                  shown : false };
       });
     },
 
     function ASCIItoBinary (array) {
       return _.map(array, function (value) {
-        var bits = (value).toString(2).split('');
+        var bits = (value.value).toString(2).split('');
         bits = _.map(bits, function(value) {
-          return { value: value * 1 };
+          return newBit(value * 1);
         });
         while (bits.length < 8) {
-          bits.unshift(0);
+          bits.unshift(newBit(0));
         }
         return bits;
       })
@@ -93,12 +94,12 @@ angular.module('hashBang.services', [])
       for (var i = 0; i < array.length; i++) {
         results = results.concat(array[i]);
       }
-      return results.concat([1]);
+      return results.concat(newBit(1));
     },
 
     function appendZeros (array) {
       while (array.length < 448) {
-        array.push(0);
+        array.push(newBit(0));
       }
       return array;
     },

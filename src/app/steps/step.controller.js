@@ -14,7 +14,14 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
       return 'one';
     }
   }
-  $scope.animationTime = 50;
+  $scope.digitClass = function (digit) {
+    var str = '';
+    if (digit.value === 0) { str = 'zero'} 
+    else { str = 'one' }
+    if (!digit.shown) { str += ' invisible' }
+    else { str += ' visible' }
+    return str;
+  }
 
   if (!hashFunctions.steps.created) {
     hashFunctions.createHash('A Test');
@@ -22,26 +29,72 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
   $scope.step = $stateParams.name * 1;
   $scope.stepData = hashFunctions.steps[$scope.step - 1];
   $scope.stepValues = $scope.stepData.value;
-  // console.log($scope.stepValues);
 
 
   if ($scope.step === 1) {
+    var animationTime = 50;
     for (var i = 0; i < $scope.stepValues.length; i++) {
-      if ($scope.stepValues[i] === ' ') {
-        $scope.stepValues[i] = "_";
+      if ($scope.stepValues[i].value === ' ') {
+        $scope.stepValues[i].value = "_";
       }
     }
-  }
-
-
-
-
-  if ($scope.step === 4) {
     for (var i = 0; i < $scope.stepValues.length; i++) {
       (function (index) {
           $timeout(function () {
-            // console.log(index);
-          }, $scope.animationTime * index);
+            $scope.stepValues[index].shown = true;
+          }, animationTime * index);
+      })(i);
+    };
+  }
+
+  if ($scope.step === 2) {
+    var animationTime = 50;
+    for (var i = 0; i < $scope.stepValues.length; i++) {
+      (function (index) {
+          $timeout(function () {
+            $scope.stepValues[index].shown = true;
+          }, animationTime * index);
+      })(i);
+    };
+  }
+
+  if ($scope.step === 3) {
+    var animationTime = 20;
+    for (var i = 0; i < $scope.stepValues.length; i++) {
+      for (var j = 0; j < $scope.stepValues[i].length; j++) {
+        $scope.stepValues[i][j].shown = false;
+        (function (index, jndex) {
+            $timeout(function () {
+            $scope.stepValues[index][jndex].shown = true;
+            }, animationTime * (index * $scope.stepValues.length + jndex));
+        })(i, j);
+      };
+    };
+  }
+
+
+  if ($scope.step === 4) {
+    var animationTime = 20;
+    console.log($scope.stepValues);
+    for (var i = 0; i < $scope.stepValues.length; i++) {
+      $scope.stepValues[i].shown = false;
+      (function (index) {
+          $timeout(function () {
+            $scope.stepValues[index].shown = true;
+          }, animationTime * index);
+      })(i);
+    };
+  }
+
+  if ($scope.step === 5) {
+    var animationTime = 10;
+    console.log($scope.stepValues);
+    for (var i = 0; i < $scope.stepValues.length; i++) {
+      $scope.stepValues[i].shown = false;
+      (function (index) {
+          $timeout(function () {
+            $scope.stepValues[index].shown = true;
+          }, animationTime * index);
       })(i);
     };
   }
