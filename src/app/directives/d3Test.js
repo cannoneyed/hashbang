@@ -9,9 +9,10 @@ angular.module( 'hashBang.directives', [])
           data: '='
         },
         link: function (scope, element) {
+          
           var margin = {top: 20, right: 20, bottom: 30, left: 40},
-            width = 480 - margin.left - margin.right,
-            height = 360 - margin.top - margin.bottom;
+            width = 1000 - margin.left - margin.right,
+            height = 700 - margin.top - margin.bottom;
           var svg = d3.select(element[0])
             .append("svg")
             .attr('width', width + margin.left + margin.right)
@@ -25,26 +26,48 @@ angular.module( 'hashBang.directives', [])
    
           //Render graph based on 'data'
           scope.render = function(data) {
-            //Set our scale's domains
-            x.domain(data.map(function(d) { return d.name; }));
-            y.domain([0, d3.max(data, function(d) { return d.count; })]);
+            // // //Set our scale's domains
+            // x.domain(data.map(function(d) { return d.name; }));
+            // y.domain([0, d3.max(data, function(d) { return d.count; })]);
             
+            var rowWidth = rowWidth;
 
-              
-                
-            var bars = svg.selectAll(".bar").data(data);
-            bars.enter()
+            var bits = svg.selectAll(".bit").data(data.values);
+            bits.enter()
               .append("rect")
               .attr("class", "bar")
-              .attr("x", function(d) { return x(d.name); })
-              .attr("width", x.rangeBand());
-   
-            //Animate bars
-            bars
-                .transition()
-                .duration(1000)
-                .attr('height', function(d) { return height - y(d.count); })
-                .attr("y", function(d) { return y(d.count); })
+              .attr("x", function(d, index) {
+                return index % data.rowWidth * (data.size + data.size / 4) + 10 * (32 - data.rowWidth); 
+              })
+              .attr("y", function(d, index) { 
+                return  Math.floor(index / data.rowWidth) * (data.size + data.size / 4);
+              })
+              .attr("fill", function (d) {
+                return d.value === 0 ? '#444' : '#fdfdfd';
+              })
+              .attr("width", data.size)
+              .attr("height", data.size);
+
+            var text = svg.selectAll('.text').data(data.values);
+            text.enter()
+              .append("text")
+              .attr("class", "digit")
+              .text(function(d) {
+                return d.value;
+              })
+              .attr("x", function(d, index) {
+                return index % data.rowWidth * (data.size + data.size / 4) + (data.size / 3.5) + 10 * (32 - data.rowWidth); 
+              })
+              .attr("y", function(d, index) { 
+                return  Math.floor(index / data.rowWidth) * (data.size + data.size / 4) + (data.size / 1.4);
+              })
+              .attr("fill", function (d) {
+                return d.value === 1 ? '#444' : '#fdfdfd';
+              })
+              .attr("font-family", 'courier')
+              .style("font-size", data.size / 1.5 + 'px')
+              .attr("z-index", '20');
+                
           };
    
            //Watch 'data' and run scope.render(newVal) whenever it changes

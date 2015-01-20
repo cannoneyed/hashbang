@@ -13,20 +13,14 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
   $scope.step = 3;
   $scope.stepData = hashFunctions.steps[$scope.step - 1];
   $scope.stepValues = $scope.stepData.value;
+  $scope.stepValues = _.flatten($scope.stepValues);
 
-  console.log(_.flatten($scope.stepValues));
-
-  $scope.myData = [
-      {name: 'AngularJS', count: 300},
-      {name: 'D3.JS', count: 150},
-      {name: 'jQuery', count: 400},
-      {name: 'Backbone.js', count: 300},
-      {name: 'Ember.js', count: 100}
-  ];
-
-  console.log('hello')
-
-
+  $scope.scopeData = {
+    values: $scope.stepValues,
+    rowWidth: 8,
+    size: 40,
+    center: 400
+  }
 
 
 
