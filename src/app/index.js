@@ -19,8 +19,8 @@ angular.module('hashBang', [
         controller: 'MainController'
       })
 
-      .state("step/:name", {
-        url: "/step/:name",
+      .state('step/:name', {
+        url: '/step/:name',
         templateUrl: function ($stateParams) {
           var step = $stateParams.name;
           if (step < 10) {
@@ -30,6 +30,13 @@ angular.module('hashBang', [
           }
           return '/app/steps/html/step' + step + '.html';
           }
+         // controller: 'StateController',
+         // needsAuthentication: true
+       })
+
+      .state('hello', {
+        url: '/hello',
+        template: '<h1>HI</h1>'
          // controller: 'StateController',
          // needsAuthentication: true
        });
