@@ -1,9 +1,12 @@
-<div class="displayBox"> 
+<div class="container">
+  <hashbang-header></hashbang-header>
+  <div class="jumbotron text-center stage">
+      
 
-  <div class="line-highlight" 
-       ng-repeat="line in step7Lines"
-       ng-style="setHighlightPosition(line)">
-  </div>
+
+
+
+<div class="displayBox"> 
 
   <div class="eightBit bucket">
     <div  class="eightBit digit repeated-item" 
@@ -11,7 +14,7 @@
           ng-class="{ invisible: !digit.shown, 
                      zero: !digit.value, 
                      delineated: $index % 8 === 0}"
-          ng-style="setPosition($index, 32)" >
+          ng-style="setPosition($index, 32)">
       {{ digit.value }}
     </div>
   </div>
@@ -19,3 +22,13 @@
 </div>
 
 <div ng-include="'app/navbar/navbar.html'"></div>
+
+
+
+
+  </div>
+  <hr>
+  <div class="footer">
+    <p>With ♥ from <a href="http://cannoneyed.github.io">Andy</a></p>
+  </div>
+</div>

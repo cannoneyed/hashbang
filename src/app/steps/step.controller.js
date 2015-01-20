@@ -131,13 +131,28 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
   if ($scope.step === 6) {
     $scope.stepValues = hashFunctions.steps[5].value;
     var animationTime = 7;
+    $scope.animating = true;
+    for (var i = 0; i < 448; i++) {
+      $scope.stepValues[i].shown = true;
+    }
+    for (var i = 448; i < $scope.stepValues.length; i++) {
+      (function (index) {
+          $timeout(function () {
+            $scope.stepValues[index].shown = true;
+            if (index = $scope.stepValues.length - 1) { $scope.animating = false }
+          }, animationTime * (448 - index));
+      })(i);
+    };
+  }
+
+  if ($scope.step === 7) {
+    $scope.stepValues = hashFunctions.steps[5].value;
+    var animationTime = 7;
 
     $scope.animating = true;
     for (var i = 0; i < 448; i++) {
       $scope.stepValues[i].shown = true;
     }
-
-
     for (var i = 448; i < $scope.stepValues.length; i++) {
       (function (index) {
           $timeout(function () {
@@ -149,8 +164,9 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
   }
 
 
-  if ($scope.step === 7) {
+  if ($scope.step === 8) {
     $scope.step7Lines = [1,2,3,4,5,6,7,8];
+    $scope.stepValues = hashFunctions.steps[5].value;
     $scope.setHighlightPosition = function (index) {
       return {
               position: 'absolute',
@@ -169,12 +185,30 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
     };
   }
 
-  if ($scope.step === 8) {
+  if ($scope.step === 9) {
+    $scope.stepValues = hashFunctions.steps[5].value;
     $scope.stepValues = _.flatten($scope.stepValues);
+    console.log($scope.stepValues);
+    $scope.stepValues
     var animationTime = 7;
 
-    $scope.bitWidth = 12;
-    $scope.gapWidth = 2;
+    $scope.bitWidth = 4;
+    $scope.gapWidth = 5;
+
+    for (var i = 0; i < $scope.stepValues.length; i++) {
+      $scope.stepValues[i].shown = true;
+    };
+  }
+
+  if ($scope.step === 10) {
+    $scope.stepValues = hashFunctions.steps[5].value;
+    $scope.stepValues = _.flatten($scope.stepValues);
+    console.log($scope.stepValues);
+    $scope.stepValues
+    var animationTime = 7;
+
+    $scope.bitWidth = 4;
+    $scope.gapWidth = 5;
 
     for (var i = 0; i < $scope.stepValues.length; i++) {
       $scope.stepValues[i].shown = true;

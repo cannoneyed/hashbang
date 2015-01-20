@@ -1,13 +1,37 @@
-<div>
 
-  <div class="eightBit bucket" ng-repeat="value in stepValues track by $index">
-    <div class="eightBit digit repeated-item" 
-         ng-repeat="digit in value track by $index"
-         ng-class="{ invisible: !digit.shown, zero: !digit.value }">
-      {{ digit.value }}
+
+
+<div class="container">
+  <hashbang-header></hashbang-header>
+  <div class="jumbotron text-center stage">
+      
+
+
+
+    <div>
+
+      <div class="eightBit bucket" ng-repeat="value in stepValues track by $index">
+        <div class="eightBit digit repeated-item" 
+             ng-repeat="digit in value track by $index"
+             ng-class="{ invisible: !digit.shown, zero: !digit.value }">
+          {{ digit.value }}
+        </div>
+      </div>
+
+
     </div>
+    <div ng-include="'app/navbar/navbar.html'"></div>
+      
+
+
+
+
   </div>
-
-
+  <hr>
+  <div class="footer">
+    <p>With ♥ from <a href="http://cannoneyed.github.io">Andy</a></p>
+  </div>
 </div>
-<div ng-include="'app/navbar/navbar.html'"></div>
+
+
+

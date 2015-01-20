@@ -1,14 +1,30 @@
-<div class="animationContainer">
+<div class="container">
+  <hashbang-header></hashbang-header>
+  <div class="jumbotron text-center stage">
+      
 
-  <div class="bucket">
-    <div class="letter" ng-repeat="value in stepValues track by $index">
-      {{ value.value }}
+      
+    <div class="animationContainer">
+
+      <div class="bucket">
+        <div class="letter" ng-repeat="value in stepValues track by $index">
+          {{ value.value }}
+        </div>
+      </div>
+
+
+      <div ng-include="'app/navbar/navbar.html'"></div>
+
     </div>
+
+
+
   </div>
-
-
-  <div ng-include="'app/navbar/navbar.html'"></div>
-
+  <hr>
+  <div class="footer">
+    <p>With ♥ from <a href="http://cannoneyed.github.io">Andy</a></p>
+  </div>
 </div>
+
 
 
