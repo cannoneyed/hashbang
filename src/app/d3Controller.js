@@ -7,13 +7,15 @@ angular.module('hashBang.controllers')
 function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
 
 
-  if (!hashFunctions.steps.created) {
-    hashFunctions.createHash('A Test');
-  }
-  $scope.step = 3;
-  $scope.stepData = hashFunctions.steps[$scope.step - 1];
-  $scope.stepValues = $scope.stepData.value;
-  $scope.stepValues = _.flatten($scope.stepValues);
+  // if (!hashFunctions.steps.created) {
+  //   hashFunctions.createHash('A Test');
+  // }
+  // $scope.step = 3;
+  // $scope.stepData = hashFunctions.steps[$scope.step - 1];
+  // $scope.stepValues = $scope.stepData.value;
+  // $scope.stepValues = _.flatten($scope.stepValues);
+
+  console.log($scope.stepValues);
 
   $scope.scopeData = {
     values: $scope.stepValues,

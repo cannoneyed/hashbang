@@ -1,0 +1,15 @@
+<div class="displayBox"> 
+
+  <div class="thirtyTwoBit bucket">
+    <div  class="thirtyTwoBit digit repeated-item" 
+          ng-repeat="digit in stepValues track by $index"
+          ng-class="{ invisible: !digit.shown, 
+                     zero: !digit.value"
+          ng-style="setPosition($index, 32)" >
+      {{ digit.value }}
+    </div>
+  </div>
+
+</div>
+
+<div ng-include="'app/navbar/navbar.html'"></div>

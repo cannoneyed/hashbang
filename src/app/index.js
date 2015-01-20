@@ -35,12 +35,6 @@ angular.module('hashBang', [
           return '/app/steps/html/step' + step + '.html';
           },
          controller: 'StepController'
-       })
-
-      .state('hello', {
-        url: '/hello',
-        templateUrl: 'app/steps/html/hello.html',
-         controller: 'd3Controller'
        });
 
     $urlRouterProvider.otherwise('/');

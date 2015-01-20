@@ -12,7 +12,7 @@ angular.module( 'hashBang.directives', [])
           
           var margin = {top: 20, right: 20, bottom: 30, left: 40},
             width = 1000 - margin.left - margin.right,
-            height = 700 - margin.top - margin.bottom;
+            height = 500 - margin.top - margin.bottom;
           var svg = d3.select(element[0])
             .append("svg")
             .attr('width', width + margin.left + margin.right)
@@ -31,6 +31,7 @@ angular.module( 'hashBang.directives', [])
             // y.domain([0, d3.max(data, function(d) { return d.count; })]);
             
             var rowWidth = rowWidth;
+
 
             var bits = svg.selectAll(".bit").data(data.values);
             bits.enter()

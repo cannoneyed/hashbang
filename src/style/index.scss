@@ -62,6 +62,24 @@
   border-radius: 3px;
 }
 
+.thirtyTwoBit.bucket {
+  line-height:10px;
+}
+
+.thirtyTwoBit.digit {
+  z-index: 50;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 9px;
+  min-height: 9px;
+  // background-color: #FFFFFF;
+  margin: 1px;
+  font-size: .5em;
+  display: inline-block;
+  border-radius: 1px;
+}
+
 .one {
   color: black;
   background-color: #fdfdfd;
