@@ -20,17 +20,29 @@ angular.module('hashBang.services', [])
     h[index] = arr;
   });
 
-  function createHash(string) {
+  function newBit (value) {
+    return {
+      value: value,
+      shown: false,
+      get: function () {
+        return value;
+      }
+    }
+  }
+
+  function createHash(string, step) {
     var args = string;
 
     _.each(steps, function(step, index) {
       step.fn = hashFunctions[index];
       step.args = args;
-      var nextArgs = step.fn(args);
+      var nextArgs = step.fn(args, step);
       step.value = nextArgs;
 
       args = nextArgs.slice();
     });
+
+    steps.created = true;
   }
 
   function printStep (step, index) {
@@ -67,7 +79,7 @@ angular.module('hashBang.services', [])
       return _.map(array, function (value) {
         var bits = (value).toString(2).split('');
         bits = _.map(bits, function(value) {
-          return value * 1;
+          return { value: value * 1 };
         });
         while (bits.length < 8) {
           bits.unshift(0);

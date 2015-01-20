@@ -25,10 +25,16 @@
   width: 100%;
 }
 
-.bucket.letter {
+.bucket {
+  line-height:50px;
+}
+
+.letter, .digit {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   min-width: 50px;
   min-height: 50px;
-  line-height:50px;
   background-color: #FFFFFF;
   margin: 5px;
   font-size: 2em;
@@ -36,74 +42,99 @@
   border-radius: 10px;
 }
 
-.state-3 .set-perspective{
-  position:absolute;
-  height:100%;
-  width:100%;
-  -webkit-perspective-origin:65% 50%;
-  perspective-origin:65% 50%
-}
-.state-3 .cat-tile{
-  font-family:Lato;
-  background:#eaefef;
-  width:100%;
-  height:100%;
-  border-radius:5px
+.eightBit.bucket {
+  line-height:30px;
 }
 
-.state-3 .cat-tile .left-col{
-  float:left;
-  width:40%;
-  padding-top:10px;
-  padding-left:10px
+.eightBit.digit {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 30px;
+  min-height: 30px;
+  // background-color: #FFFFFF;
+  margin: 2px;
+  font-size: 1.5em;
+  display: inline-block;
+  border-radius: 3px;
 }
 
-.state-3 .cat-tile .left-col .cat-picture{
-  height:90px;
-  width:90px;
-  border-radius:999px;
-  border:3px solid #fff
+.one {
+  color: black;
+  background-color: #fdfdfd;
 }
 
-.state-3 .cat-tile .right-col{
-  float:left;
-  width:59%;
-  padding-top:16px
+.zero {
+  color: white;
+  background-color: #444;
 }
 
-.state-3 .cat-tile .right-col .cat-name{
-  font-size:28px;
-  color:#1b1f1f
+
+
+
+
+/*
+  We're using CSS transitions for when
+  the enter and move events are triggered
+  for the element that has the .repeated-item
+  class
+*/
+.repeated-item.ng-enter, .repeated-item.ng-move {
+  -webkit-transition:0.5s linear all;
+  -moz-transition:0.5s linear all;
+  -o-transition:0.5s linear all;
+  transition:0.5s linear all;
+  opacity:0;
 }
 
-.state-3 .cat-tile .right-col .cat-location{
-  font-size:20px;
-  color:#ae81ff
+/*
+ The ng-enter-active and ng-move-active
+ are where the transition destination properties
+ are set so that the animation knows what to
+ animate.
+*/
+.repeated-item.ng-enter.ng-enter-active,
+.repeated-item.ng-move.ng-move-active {
+  opacity:1;
 }
 
-.state-3 .repeat-slider-container{
-  position:absolute;
-  background:#fff;
-  border-radius:3px;
-  width:100%;height:100%;
-  padding:35px 30px
+/*
+  We're using CSS keyframe animations for when
+  the leave event is triggered for the element
+  that has the .repeated-item class
+*/
+.repeated-item.ng-leave {
+  -webkit-animation:0.5s my_animation;
+  -moz-animation:0.5s my_animation;
+  -o-animation:0.5s my_animation;
+  animation:0.5s my_animation;
 }
 
-.state-3 .repeat-slider{
-  border:0;
-  border-radius:3px;
-  margin:auto;
-  height:50px;
-  width:90%
+@keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
 }
 
-.state-3 .repeat-slider:focus{
-  outline-width:0
+/*
+  Unfortunately each browser vendor requires
+  its own definition of keyframe animation code...
+*/
+@-webkit-keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
 }
 
-@media (max-width:767px){
-  .state-3 .repeat-slider-container{
-    padding:50px}
+@-moz-keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
 }
+
+@-o-keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+
+
 // injector
 // endinjector

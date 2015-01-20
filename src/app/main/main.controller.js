@@ -7,13 +7,14 @@ angular.module('hashBang.controllers', [
          '$scope', 'hashFunctions', '$location', 
 function ($scope,   hashFunctions,   $location) {
 
-  // $scope.startHash = function() {
-  //   // if ($scope.hashString !== undefined) {
-  //     // hashFunctions.createHash($scope.hashString);
-  //     hashFunctions.createHash('A Test');
-  //     $location.path('/step/1');
-  //   // }
-  // }
+  $scope.hashString;
+
+
+  $scope.startHash = function() {
+
+      hashFunctions.createHash($scope.hashString);
+      $location.path('/step/1');
+  }
 
   // $scope.startHash();
 

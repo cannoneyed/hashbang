@@ -1,0 +1,15 @@
+<div>
+
+  <div class="eightBit bucket" ng-repeat="value in stepValues track by $index">
+    <div class="eightBit digit" 
+         ng-repeat="digit in value track by $index"
+         ng-class="binaryClass(digit)"
+         ng-animate="'animate'">
+      {{ digit }}
+    </div>
+  </div>
+
+
+  <div ng-include="'app/navbar/navbar.html'"></div>
+
+</div>

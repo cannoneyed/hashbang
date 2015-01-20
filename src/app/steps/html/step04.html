@@ -1,0 +1,14 @@
+<div>
+
+  <div class="eightBit bucket">
+    <div class="eightBit digit repeated-item" 
+         ng-repeat="digit in enterValues track by $index"
+         ng-class="binaryClass(digit)">
+      {{ digit }}
+    </div>
+  </div>
+
+
+  <div ng-include="'app/navbar/navbar.html'"></div>
+
+</div>
