@@ -1,0 +1,73 @@
+<div class="container">
+  <hashbang-header></hashbang-header>
+  <div class="jumbotron text-center stage">
+      
+
+    <div class="displayBox"> 
+
+
+  
+    <div class="eightBit bucket">
+      <div class="eightBit digit repeated-item" 
+           ng-repeat="digit in A track by $index"
+           ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
+           ng-style="setWordPosition($index, 32, 200, 0)">
+        {{ digit.value }}
+      </div>
+    </div>
+
+    <div class="eightBit bucket">
+      <div class="eightBit digit repeated-item" 
+           ng-repeat="digit in B track by $index"
+           ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
+           ng-style="setWordPosition($index, 32, 200, 100)">
+        {{ digit.value }}
+      </div>
+    </div>
+
+    <div class="eightBit bucket">
+      <div class="eightBit digit repeated-item" 
+           ng-repeat="digit in C track by $index"
+           ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
+           ng-style="setWordPosition($index, 32, 200, 200)">
+        {{ digit.value }}
+      </div>
+    </div>
+
+    <div class="eightBit bucket">
+      <div class="eightBit digit repeated-item" 
+           ng-repeat="digit in D track by $index"
+           ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
+           ng-style="setWordPosition($index, 32, 200, 300)">
+        {{ digit.value }}
+      </div>
+    </div>
+
+    <div class="eightBit bucket">
+      <div class="eightBit digit repeated-item" 
+           ng-repeat="digit in E track by $index"
+           ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
+           ng-style="setWordPosition($index, 32, 200, 400)">
+        {{ digit.value }}
+      </div>
+    </div>
+
+    <div class="label varLabelA">A</div>
+    <div class="label varLabelB">B</div>
+    <div class="label varLabelC">C</div>
+    <div class="label varLabelD">D</div>
+    <div class="label varLabelE">E</div>
+  
+</div>
+
+    <div ng-include="'app/navbar/navbar.html'"></div>
+
+
+
+
+      </div>
+      <hr>
+      <div class="footer">
+        <p>With ♥ from <a href="http://cannoneyed.github.io">Andy</a></p>
+      </div>
+    </div>

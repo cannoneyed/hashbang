@@ -188,7 +188,8 @@ angular.module('hashBang.services', [])
     steps : steps,
     createHash : createHash,
     XOR : XOR,
-    leftShift : leftShift
+    leftShift : leftShift,
+    h : h
   };
 
 

@@ -44,13 +44,15 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
   $scope.width = 1100;
   $scope.bitWidth = 27;
   $scope.gapWidth = 7;
-  $scope.setPosition = function (index, rowSize) {
+  $scope.setPosition = function (index, rowSize, x, y) {
+    if (x === undefined) { x = 0; }
+    if (y === undefined) { y = 0; }
     var row = Math.floor(index / rowSize);
     var col = index % rowSize;
       return {
         position: 'absolute',
-        top : ((($scope.bitWidth + $scope.gapWidth) * row)+'px'),
-        left : ((($scope.bitWidth + $scope.gapWidth) * col)+'px'),
+        top : (y +((($scope.bitWidth + $scope.gapWidth) * row))+'px'),
+        left : (x + ((($scope.bitWidth + $scope.gapWidth)) * col)+'px'),
         "width": $scope.bitWidth + 'px',
         "height": $scope.bitWidth + 'px'
       }
@@ -70,7 +72,7 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
       }
   };
 
-  var stepToFetch = [0,1,2,3,4,5,5,5,5,7,7, 7]
+  var stepToFetch = [0,1,2,3,4,5,5,5,5,7,7,7,8,8,8,8,8,8]
 
   if (!hashFunctions.steps.created) {
     hashFunctions.createHash('A Test');
@@ -396,26 +398,91 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
       animationSchedule += 10 * animationTime;
     }
 
-
-    // var nextIteration = function() {
-    //   $timeout(function() {
-    //     animationTime = 1;
-    //     console.log(animationSchedule);
-    //     animationSchedule = 1000;
-    //     if ($scope.counter < 50) {
-    //       iterate();
-    //       nextIteration()
-    //     }
-    //   }, animationSchedule);
-    // }
-    
     iterate();
-    // nextIteration();
 
   }
 
+  if ($scope.step === 13) {
+
+    $scope.stepValues = hashFunctions.steps[8].value;
+
+    $scope.counter = 16;
+
+    $scope.word1 = $scope.stepValues[$scope.counter - 16];
+    $scope.word2 = $scope.stepValues[$scope.counter - 14];
+    $scope.word3 = $scope.stepValues[$scope.counter - 8];
+    $scope.word4 = $scope.stepValues[$scope.counter - 3];
+
+    $scope.stepValues = _.flatten($scope.stepValues);
+    var animationTime = 7;
+
+    $scope.bitWidth = 3;
+    $scope.gapWidth = 3;
+
+    for (var i = 0; i < $scope.stepValues.length; i++) {
+      $scope.stepValues[i].shown = true;
+    };
+
+    // $scope.result1 = $scope.
+  }
+
+  if ($scope.step === 14) {
+
+    $scope.stepValues = hashFunctions.steps[8].value;
 
 
+    $scope.stepValues = _.flatten($scope.stepValues);
+    $scope.quadrant1 = $scope.stepValues.slice(0, 640);
+    $scope.quadrant2 = $scope.stepValues.slice(640, 1280);
+    $scope.quadrant3 = $scope.stepValues.slice(1280, 1920);
+    $scope.quadrant4 = $scope.stepValues.slice(1920, 2560);
+
+    $scope.bitWidth = 10;
+    $scope.gapWidth = 2;
+
+    for (var i = 0; i < $scope.stepValues.length; i++) {
+      $scope.stepValues[i].shown = true;
+    };
+
+    // $scope.result1 = $scope.
+  }
+  var h = hashFunctions.h;
+  $scope.A = _.map(h[0], function (item) {
+    return { value: item, shown: true }
+  });
+  $scope.B = _.map(h[1], function (item) {
+    return { value: item, shown: true }
+  });
+  $scope.C = _.map(h[2], function (item) {
+    return { value: item, shown: true }
+  });
+  $scope.D = _.map(h[3], function (item) {
+    return { value: item, shown: true }
+  });
+  $scope.E= _.map(h[3], function (item) {
+    return { value: item, shown: true }
+  });
+
+  if ($scope.step === 15) {
+
+    $scope.stepValues = hashFunctions.steps[8].value;
+
+    // $scope.result1 = $scope.
+  }
+
+  if ($scope.step === 16) {
+
+    $scope.stepValues = hashFunctions.steps[8].value.slice(0, 640);
+
+    // $scope.result1 = $scope.
+  }
+
+  if ($scope.step === 16) {
+
+    $scope.stepValues = hashFunctions.steps[8].value.slice(0, 640);
+
+    // $scope.result1 = $scope.
+  }
 
 
 

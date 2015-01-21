@@ -32,13 +32,13 @@ Once the project moves into development, the press release can be used as a touc
   > SHA-1, or Secure Hash Algorithm, is one of the most widely used hashing algorithms on the web. By visualizing and explaining the SHA-1 hashing algorithm step-by-step, this site attempts to shed some light on one of the most fundamental technologies of the modern internet.
 
 ## Quote from You ##
-  > 'This is the most amazing visualization tool ever conceived. I love it.'
+  > "Angular is worse than a snake orgy. It's spider babiers... for real"
 
 ## How to Get Started ##
   > Just type in a message to be hashed, and follow along as you're guided through each step of the hashing process.
 
 ## Customer Quote ##
-  > 'It cost, it be the boss - Mike Moss (the boss)'
+  > "It cost, it be the boss" - Mike Moss (the boss)
 
 ## Closing and Call to Action ##
   > The visualization is based on the incredible narrative hosted [here](http://www.metamorphosite.com/one-way-hash-encryption-sha1-data-software).

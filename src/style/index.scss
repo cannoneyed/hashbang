@@ -199,20 +199,72 @@ top: 24px;
 }
 
 
-
-
-
-
-
-
-
-.repeated-item {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+.label.varLabelA {
+  top: -15px;
+  left: 150px;
 }
+.label.varLabelB {
+  top: 85px;
+  left: 150px;
+}
+.label.varLabelC {
+  top: 185px;
+  left: 150px;
+}
+.label.varLabelD {
+  top: 285px;
+  left: 150px;
+}
+.label.varLabelE {
+  top: 385px;
+  left: 150px;
+}
+
+.label.left.varLabelA {
+  top: -20px;
+  left: 0px;
+}
+.label.left.varLabelB {
+  top: 30px;
+  left: 0px;
+}
+.label.left.varLabelC {
+  top: 80px;
+  left: 0px;
+}
+.label.left.varLabelD {
+  top: 130px;
+  left: 0px;
+}
+.label.left.varLabelE {
+  top: 180px;
+  left: 0px;
+}
+
+
+
+
+
+
+// .repeated-item {
+//   -webkit-transition:all 0.5s;
+//   transition:all 0.5s
+// }
 
 .repeated-item.invisible {
   opacity:0;
+}
+
+.repeated-item.ng-enter-stagger,
+.repeat-item.ng-leave-stagger,
+.repeat-item.ng-move-stagger {
+  /* notice how we're using animation instead of transition here */ 
+  -webkit-animation-delay:50ms;
+  animation-delay:50ms;
+
+  /* yes we still need to do this too */
+  -webkit-animation-duration:0;
+  animation-duration:0;
 }
 
 

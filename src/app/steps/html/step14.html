@@ -1,0 +1,62 @@
+<div class="container">
+  <hashbang-header></hashbang-header>
+  <div class="jumbotron text-center stage">
+      
+
+    <div class="displayBox"> 
+
+      <div class="thirtyTwoBit bucket">
+        <div  class="thirtyTwoBit digit repeated-item" 
+              ng-repeat="digit in quadrant1 track by $index"
+              ng-class="{ invisible: !digit.shown, 
+                         zero: !digit.value}"
+              ng-style="setPosition($index, 32, 50, 0)" >
+          {{ digit.value }}
+        </div>
+      </div>
+
+
+      <div class="thirtyTwoBit bucket">
+        <div  class="thirtyTwoBit digit repeated-item" 
+              ng-repeat="digit in quadrant2 track by $index"
+              ng-class="{ invisible: !digit.shown, 
+                         zero: !digit.value}"
+              ng-style="setPosition($index, 32, 50, 275)" >
+          {{ digit.value }}
+        </div>
+      </div>
+
+      <div class="thirtyTwoBit bucket">
+        <div  class="thirtyTwoBit digit repeated-item" 
+              ng-repeat="digit in quadrant3 track by $index"
+              ng-class="{ invisible: !digit.shown, 
+                         zero: !digit.value}"
+              ng-style="setPosition($index, 32, 650, 0)" >
+          {{ digit.value }}
+        </div>
+      </div>
+
+
+      <div class="thirtyTwoBit bucket">
+        <div  class="thirtyTwoBit digit repeated-item" 
+              ng-repeat="digit in quadrant2 track by $index"
+              ng-class="{ invisible: !digit.shown, 
+                         zero: !digit.value}"
+              ng-style="setPosition($index, 32, 650, 275)" >
+          {{ digit.value }}
+        </div>
+      </div>
+    
+</div>
+
+    <div ng-include="'app/navbar/navbar.html'"></div>
+
+
+
+
+      </div>
+      <hr>
+      <div class="footer">
+        <p>With ♥ from <a href="http://cannoneyed.github.io">Andy</a></p>
+      </div>
+    </div>

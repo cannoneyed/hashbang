@@ -33,7 +33,17 @@ angular.module('hashBang.controllers')
        $scope.message = 'We then perform an exclusive OR operation (XOR) on the four words sequentially, and left shift the product. We then append the product to the list and continue until our list is 80 words long.';
      } else if (state === '12') {
        $scope.message = 'We then perform an exclusive OR operation (XOR) on the four words sequentially, and left shift the product. We then append the product to the list and continue until our list is 80 words long.';
-     } 
+     } else if (state === '13') {
+       $scope.message = 'We now have a list of 80 16-bit words.';
+     } else if (state === '14') {
+       $scope.message = 'Split the list of 80 words into four groups of 20.';
+     } else if (state === '15') {
+      $scope.message = 'Define five variables A, B, C, D, and E.'
+     } else if (state === '16') {
+      $scope.message = 'Each of the four quadrants is run through one of four functions, which first must calculate two values based on the state of our current variables.'
+     } else if (state === '17') {
+      $scope.message = 'The first function sets a variable F equal to (B AND C) OR (!B AND D), and a variable K equal to 01011010100000100111100110011001'
+     }
 
 
   });
