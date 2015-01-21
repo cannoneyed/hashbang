@@ -5,22 +5,20 @@
 
     <div class="displayBox"> 
 
-
-  
       <div class="eightBit bucket">
         <div class="eightBit digit repeated-item" 
-             ng-repeat="digit in A track by $index"
+             ng-repeat="digit in k1 track by $index"
              ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
-             ng-style="setWordPosition($index, 32, 50, 0)">
+             ng-style="setWordPosition($index, 32, 250, 100)">
           {{ digit.value }}
         </div>
       </div>
-
+  
       <div class="eightBit bucket">
         <div class="eightBit digit repeated-item" 
              ng-repeat="digit in B track by $index"
              ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
-             ng-style="setWordPosition($index, 32, 50, 50)">
+             ng-style="setWordPosition($index, 32, 250, 200)">
           {{ digit.value }}
         </div>
       </div>
@@ -29,7 +27,7 @@
         <div class="eightBit digit repeated-item" 
              ng-repeat="digit in C track by $index"
              ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
-             ng-style="setWordPosition($index, 32, 50, 100)">
+             ng-style="setWordPosition($index, 32, 250, 250)">
           {{ digit.value }}
         </div>
       </div>
@@ -38,25 +36,40 @@
         <div class="eightBit digit repeated-item" 
              ng-repeat="digit in D track by $index"
              ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
-             ng-style="setWordPosition($index, 32, 50, 150)">
+             ng-style="setWordPosition($index, 32, 250, 400)">
+          {{ digit.value }}
+        </div>
+      </div>
+
+
+      <div class="eightBit bucket">
+        <div class="eightBit digit repeated-item" 
+             ng-repeat="digit in result1 track by $index"
+             ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
+             ng-style="setWordPosition($index, 32, 250, 300)">
           {{ digit.value }}
         </div>
       </div>
 
       <div class="eightBit bucket">
         <div class="eightBit digit repeated-item" 
-             ng-repeat="digit in E track by $index"
+             ng-repeat="digit in result2 track by $index"
              ng-class="{ invisible: !digit.shown, zero: !digit.value, delineated: $index % 8 === 0}"
-             ng-style="setWordPosition($index, 32, 50, 200)">
+             ng-style="setWordPosition($index, 32, 250, 450)">
           {{ digit.value }}
         </div>
       </div>
 
-      <div class="label left varLabelA">A</div>
-      <div class="label left varLabelB">B</div>
-      <div class="label left varLabelC">C</div>
-      <div class="label left varLabelD">D</div>
-      <div class="label left varLabelE">E</div>
+
+
+
+      <div class="label algo label1" style="left: 200px; top: 82px;">K</div>
+      <div class="label algo label1" style="left: 200px; top: 182px;">B</div>
+      <div class="label algo label1" style="left: 200px; top: 232px;">C</div>
+      <div class="label algo label1" style="left: 200px; top: 382px;">D</div>
+
+      <div class="label result1 label1" style="left: 200px; top: 290px;">XOR</div>
+      <div class="label result1 label1" style="left: 200px; top: 440px;">XOR</div>
 
 
       <div class="equation"></div>

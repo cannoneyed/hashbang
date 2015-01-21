@@ -43,6 +43,12 @@ angular.module('hashBang.controllers')
       $scope.message = 'Each of the four quadrants is run through one of four functions, which first must calculate two values based on the state of our current variables.'
      } else if (state === '17') {
       $scope.message = 'The first function sets a variable F equal to (B AND C) OR (!B AND D), and a variable K equal to 01011010100000100111100110011001'
+     } else if (state === '18') {
+      $scope.message = 'The second function sets a variable F equal to B XOR C XOR D, and a variable K equal to 01101110110110011110101110100001'
+     } else if (state === '19') {
+      $scope.message = 'The third function sets a variable F equal to (B AND C) OR (B AND D) OR (C AND D), and a variable K equal to 10001111000110111011110011011100'
+     } else if (state === '20') {
+      $scope.message = 'The fourth function is the same as function 1 variable K equal to 11001010011000101100000111010110'
      }
 
 

@@ -72,7 +72,7 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
       }
   };
 
-  var stepToFetch = [0,1,2,3,4,5,5,5,5,7,7,7,8,8,8,8,8,8]
+  var stepToFetch = [0,1,2,3,4,5,5,5,5,7,7,7,8,8,8,8,8,8,8,8]
 
   if (!hashFunctions.steps.created) {
     hashFunctions.createHash('A Test');
@@ -477,13 +477,182 @@ function ($scope,   hashFunctions,   $location,   $stateParams,   $timeout) {
     // $scope.result1 = $scope.
   }
 
-  if ($scope.step === 16) {
+  if ($scope.step === 17) {
+    var animationTime = 20;
+    var animationSchedule = 0;
+
+    var hideAll = function (array) {
+      for (var i = 0; i < array.length; i++) {
+        array[i].shown = false;
+      };
+    }
+
+    var animateAll = function (array) {
+      for (var i = 0; i < array.length; i++) {
+        animationSchedule += animationTime;
+        (function (index) {
+            $timeout(function () {
+              array[index].shown = true;
+               // animationSchedule += animationTime;
+            }, animationSchedule);
+        })(i);
+      };
+    }
 
     $scope.stepValues = hashFunctions.steps[8].value.slice(0, 640);
+    $scope.notB = _.map($scope.B, function (item) {
+      return { value: item.value === 1 ? 0 : 1, shown: true };
+    });
+    $scope.k1 = _.map('01011010100000100111100110011001'.split(''), function (item) {
+      return { value: item * 1, shown: true };
+    });
 
-    // $scope.result1 = $scope.
+
+    $scope.result1 = hashFunctions.AND($scope.B, $scope.C);
+    $scope.result2 = hashFunctions.AND($scope.notB, $scope.D);
+    $scope.result3 = hashFunctions.OR($scope.result1, $scope.result2);
+
+    hideAll($scope.result1);
+    hideAll($scope.result2);
+    hideAll($scope.result3);
+
+    animateAll($scope.result1);
+    animateAll($scope.result2);
+    animateAll($scope.result3);
   }
 
+  if ($scope.step === 18) {
+    var animationTime = 20;
+    var animationSchedule = 0;
+
+    var hideAll = function (array) {
+      for (var i = 0; i < array.length; i++) {
+        array[i].shown = false;
+      };
+    }
+
+    var animateAll = function (array) {
+      for (var i = 0; i < array.length; i++) {
+        animationSchedule += animationTime;
+        (function (index) {
+            $timeout(function () {
+              array[index].shown = true;
+               // animationSchedule += animationTime;
+            }, animationSchedule);
+        })(i);
+      };
+    }
+
+    $scope.stepValues = hashFunctions.steps[8].value.slice(0, 640);
+    $scope.notB = _.map($scope.B, function (item) {
+      return { value: item.value === 1 ? 0 : 1, shown: true };
+    });
+    $scope.k1 = _.map('01101110110110011110101110100001'.split(''), function (item) {
+      return { value: item * 1, shown: true };
+    });
+
+
+    $scope.result1 = hashFunctions.XOR($scope.B, $scope.C);
+    $scope.result2 = hashFunctions.XOR($scope.result1, $scope.D);
+
+    hideAll($scope.result1);
+    hideAll($scope.result2);
+
+    animateAll($scope.result1);
+    animateAll($scope.result2);
+  }
+
+  if ($scope.step === 19) {
+    var animationTime = 20;
+    var animationSchedule = 0;
+
+    var hideAll = function (array) {
+      for (var i = 0; i < array.length; i++) {
+        array[i].shown = false;
+      };
+    }
+
+    var animateAll = function (array) {
+      for (var i = 0; i < array.length; i++) {
+        animationSchedule += animationTime;
+        (function (index) {
+            $timeout(function () {
+              array[index].shown = true;
+               // animationSchedule += animationTime;
+            }, animationSchedule);
+        })(i);
+      };
+    }
+
+    $scope.stepValues = hashFunctions.steps[8].value.slice(0, 640);
+    $scope.notB = _.map($scope.B, function (item) {
+      return { value: item.value === 1 ? 0 : 1, shown: true };
+    });
+    $scope.k1 = _.map('10001111000110111011110011011100'.split(''), function (item) {
+      return { value: item * 1, shown: true };
+    });
+
+
+    $scope.result1 = hashFunctions.AND($scope.B, $scope.C);
+    $scope.result2 = hashFunctions.AND($scope.B, $scope.D);
+    $scope.result3 = hashFunctions.AND($scope.C, $scope.D);
+    $scope.result4 = hashFunctions.OR($scope.result1, $scope.result2);
+    $scope.result5 = hashFunctions.OR($scope.result3, $scope.result4);
+
+    hideAll($scope.result1);
+    hideAll($scope.result2);
+    hideAll($scope.result3);
+    hideAll($scope.result4);
+
+    animateAll($scope.result1);
+    animateAll($scope.result2);
+    animateAll($scope.result3);
+    animateAll($scope.result4);
+  }
+
+  if ($scope.step === 20) {
+    var animationTime = 20;
+    var animationSchedule = 0;
+
+    var hideAll = function (array) {
+      for (var i = 0; i < array.length; i++) {
+        array[i].shown = false;
+      };
+    }
+
+    var animateAll = function (array) {
+      for (var i = 0; i < array.length; i++) {
+        animationSchedule += animationTime;
+        (function (index) {
+            $timeout(function () {
+              array[index].shown = true;
+               // animationSchedule += animationTime;
+            }, animationSchedule);
+        })(i);
+      };
+    }
+
+    $scope.stepValues = hashFunctions.steps[8].value.slice(0, 640);
+    $scope.notB = _.map($scope.B, function (item) {
+      return { value: item.value === 1 ? 0 : 1, shown: true };
+    });
+    $scope.k1 = _.map('01011010100000100111100110011001'.split(''), function (item) {
+      return { value: item * 1, shown: true };
+    });
+
+
+    $scope.result1 = hashFunctions.AND($scope.B, $scope.C);
+    $scope.result2 = hashFunctions.AND($scope.notB, $scope.D);
+    $scope.result3 = hashFunctions.OR($scope.result1, $scope.result2);
+
+    hideAll($scope.result1);
+    hideAll($scope.result2);
+    hideAll($scope.result3);
+
+    animateAll($scope.result1);
+    animateAll($scope.result2);
+    animateAll($scope.result3);
+  }
 
 
 

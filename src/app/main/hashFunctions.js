@@ -175,6 +175,31 @@ angular.module('hashBang.services', [])
     return result;
   }
 
+  function AND (word1, word2) {
+    var result = [];
+    for (var i = 0; i < word1.length; i++) {
+      result.push(newBit(word1[i].value & word2[i].value));
+    }
+    return result;
+  }
+
+  function NAND (word1, word2) {
+    var result = [];
+    for (var i = 0; i < word1.length; i++) {
+      result.push(newBit(!word1[i].value & word2[i].value));
+    }
+    return result;
+  }
+
+
+  function OR (word1, word2) {
+    var result = [];
+    for (var i = 0; i < word1.length; i++) {
+      result.push(newBit(word1[i].value | word2[i].value));
+    }
+    return result;
+  }
+
   function leftShift (word) {
     var result = word.slice();
     var x = result.shift()
@@ -188,6 +213,9 @@ angular.module('hashBang.services', [])
     steps : steps,
     createHash : createHash,
     XOR : XOR,
+    AND : AND,
+    NAND: NAND,
+    OR : OR,
     leftShift : leftShift,
     h : h
   };
